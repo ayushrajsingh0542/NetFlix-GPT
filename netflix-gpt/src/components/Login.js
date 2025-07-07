@@ -6,14 +6,12 @@ import {
   signInWithEmailAndPassword,updateProfile
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 
 function Login() {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errMsg, setErrMsg] = useState(null);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const name = useRef("Ayush");
@@ -51,13 +49,13 @@ function Login() {
           console.log(user);
           updateProfile(user, {
             displayName: name.current.value,
-            photoURL: "https://avatars.githubusercontent.com/u/105589428?s=400&u=ab4de09d97c176da5f6c249b4f7ef76513907bd8&v=4",
+            photoURL: "https://wallpapers.com/images/high/netflix-profile-pictures-1000-x-1000-qo9h82134t9nv0j0.webp",
           })
             .then(() => {
               // Profile updated!
               const {uid,email,displayName,photoURL}=auth?.currentUser;
               dispatch(addUser({uid:uid,email:email,displayName:displayName,photoURL:photoURL,}));
-              navigate("/browse");
+              
               // ...
             })
             .catch((error) => {
@@ -85,7 +83,7 @@ function Login() {
           // Signed in
           const user = userCredential.user;
           console.log(user);
-          navigate("/browse");
+       
           // ...
         })
         .catch((error) => {
