@@ -29,6 +29,8 @@
 - updated store with trailer video data
 - Embedded the ytb video and make it autoplay mute
 - Added css to make full screen ytb trailer
+- Build secondary component with movies list
+- custom hook for popular,top rated movies
 
 
 # Features
