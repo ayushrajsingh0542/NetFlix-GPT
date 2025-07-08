@@ -30,7 +30,11 @@
 - Embedded the ytb video and make it autoplay mute
 - Added css to make full screen ytb trailer
 - Build secondary component with movies list
-- custom hook for popular,top rated movies
+- custom hook for popular,top rated movies,upcoming movies
+- Found out image cdn url
+- GPT search feature
+- Implemented OpenAi api(4o-mini) to fetch results in gpt search.
+- Added env file
 
 
 # Features
@@ -50,3 +54,7 @@
     - NetflixGPT
       - Search bar
       - GPT Movie Suggestions
+
+
+# TODO
+- Each card should also run trailer
