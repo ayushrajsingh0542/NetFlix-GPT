@@ -35,7 +35,10 @@
 - GPT search feature
 - Implemented OpenAi api(4o-mini) to fetch results in gpt search.
 - Added env file
-
+- Memoisation to handle unnecessary api calls
+- re used movie list component to make movie recommendation container
+- env to gitignore
+- made site responsive
 
 # Features
 

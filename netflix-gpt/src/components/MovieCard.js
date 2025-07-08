@@ -4,7 +4,7 @@ function MovieCard({poster_path}) {
     if(!poster_path)
         return null;
     return ( 
-        <div className="w-40 pr-4">
+        <div className="w-[182px] md:w-40 pr-4">
             <img alt="movie-card" src={IMG_CDN_URL+poster_path} />
         </div>
      );
