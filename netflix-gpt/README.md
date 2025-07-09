@@ -39,6 +39,10 @@
 - re used movie list component to make movie recommendation container
 - env to gitignore
 - made site responsive
+- Created another branch to add more features
+- Added the feature so now each movie card can be cliked and play trailer
+- fixed minor bugs
+- used useLocation to confirm the path
 
 # Features
 

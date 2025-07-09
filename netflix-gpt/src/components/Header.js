@@ -1,6 +1,6 @@
 import { signOut } from "firebase/auth";
 import { auth } from "../utils/firebase.js";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useLocation,useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
@@ -12,6 +12,8 @@ function Header() {
   const user = useSelector((store) => store.user);
   const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
   const dispatch = useDispatch();
+  const location = useLocation();
+  const { movieTrailer } = useParams();
 
   function handleSignOut() {
     signOut(auth)
@@ -38,6 +40,7 @@ function Header() {
             photoURL: photoURL,
           })
         );
+        if (location.pathname === "/") 
         navigate("/browse"); //since header is everywhere and also in router provider so navigate will work here and also the best place for auth..hygiene practise
 
         // ...
@@ -54,6 +57,7 @@ function Header() {
 
   function handleGptSearchClick() {
     dispatch(toggleGptSearchView());
+    navigate("/browse")
   }
   return (
     <div className="absolute px-8 py-2 bg-gradient-to-b from-black z-10 w-screen flex md:flex-row flex-col justify-between">
@@ -64,11 +68,12 @@ function Header() {
       />
       {user && (
         <div className="flex p-2 justify-between">
+          {location.pathname===`/browse/${movieTrailer}` && (showGptSearch===false) && <button className="py-2 px-4 mx-2 my-2 bg-purple-800 text-white rounded-xl" onClick={()=>navigate("/browse")}><i class="fa-solid fa-house-user"></i>&nbsp; Home</button>}
           <button
-            className="py-2 px-4 mx-2 my-2 bg-purple-800 text-white rounded-xl"
+            className="py-2 px-4 mx-2 my-2 bg-purple-800 text-white rounded-xl" id="toggler"
             onClick={handleGptSearchClick}>
             {showGptSearch ? (
-              "Home"
+             <> <i class="fa-solid fa-house-user"></i>&nbsp; Home</>
             ) : (
               <>
                 <i className="fa-solid fa-magnifying-glass"></i>&nbsp;GPT Search

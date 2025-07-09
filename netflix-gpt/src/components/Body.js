@@ -1,6 +1,7 @@
 import Login from "./Login";
 import Browse from "./Browse";
 import { createBrowserRouter,RouterProvider } from "react-router-dom";
+import EachMovieTrailer from "./EachMovieTrailer";
 
 
 function Body() {
@@ -16,6 +17,10 @@ function Body() {
         {
             path:"/browse",
             element:<Browse />
+        },
+        {
+            path:"/browse/:movieTrailer",
+            element:<EachMovieTrailer />,
         }
     ])
 
