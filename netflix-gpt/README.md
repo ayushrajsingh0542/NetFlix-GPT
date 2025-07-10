@@ -65,3 +65,4 @@
 
 # TODO
 - Each card should also run trailer
+- Add loading effect
